@@ -172,4 +172,9 @@ preShowCheck()
 //Check for understanding 
 //Draw out the call stack for the following 
 
-
+function runTheShow(week, subject){
+    recordShow()
+    sayHi()
+    thisWeeksSubject(week,subject)
+}
+runTheShow('one','intro to js')
