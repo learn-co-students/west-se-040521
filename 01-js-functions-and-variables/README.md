@@ -7,7 +7,6 @@
 - Declare Variables and understand scope of a variable
     - Demonstrate Function Scope
     - Demonstrate Block Scope
-    - Demonstrate Lexical Scope
     - Understand Hoisting and Context
 - Understand the call stack 
     - Explain Execution Context 
@@ -15,7 +14,7 @@
     - Use the browser console to test code
     - Demonstrate Console.log
     - Know how to look up the other console methods 
-    - Demonstrate Debugger 
+
 
 
 ## JavaScript First-class Functions  
