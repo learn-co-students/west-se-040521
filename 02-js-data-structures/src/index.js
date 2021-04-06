@@ -161,12 +161,54 @@ getFlavors(daysOrders)
 
 // Callbacks and Higher-Order Functions
 
-function bakeCake(input){
-    return input('cake')
+//HOF
+function bakeCake(callback){
+    return callback('cake')
 }
-
+const bakePudding = cb => cb('pudding')
+// Callback
 function bake(str){
     return `Hello Bakers, today we will be baking ${str}`
 }
 
-bakeCake(bake)
+console.log(bakeCake(bake))
+console.log(bakePudding(bake))
+
+//.forEach()
+const logItem = item => console.log(item)
+
+// daysOrders.forEach((order) => logItem(order))
+daysOrders.forEach(order => console.log(order))
+
+//.map() returns new array populate with returns of callback functions
+let justCake = daysOrders.map(() => 'cake')
+let cakePrices = daysOrders.map(cake => cake.price)
+console.log(justCake)
+console.log(cakePrices)
+
+//.filter() returns new array of items that return true from callback
+let cupcakes = daysOrders.filter(order => order.size === 'cup cake')
+console.log(cupcakes)
+
+//.find() returns the first item that returns true in callback
+let expensiveCake = daysOrders.find(cake => cake.price > 45)
+console.log(expensiveCake)
+
+let carrot = cakeNames.find(nameStr => nameStr === 'Carrot')
+console.log(carrot)
+
+//.findIndex()
+let pinkChampIndex = daysOrders.findIndex(cakeObj => cakeObj.flavor == 'Pink Champagne')
+console.log(pinkChampIndex)
+
+//.reduce() 
+let daysTotal = daysOrders.reduce((total, cake) => {
+    return total + cake.price
+}, 0)
+console.log(daysTotal)
+
+let oneString = cakeNames.reduce((longstring, name) => {
+    return longstring + ' ' + name
+}, '')
+console.log(oneString)
+
