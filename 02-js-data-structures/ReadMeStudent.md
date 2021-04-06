@@ -9,8 +9,6 @@
     - Arrays
         - Index in array
         - Access single element in array and objects
-        - Object.keys()
-        - Object.values()
         - Iterate through Array
         - .map()
         - .forEach()
@@ -38,7 +36,7 @@
     - break statement
     - continue statement
         
-- Use conditional statements
+- Use conditional statements/control flow (decision point)
     - if statements
     - if…else statement
     - else if statement
