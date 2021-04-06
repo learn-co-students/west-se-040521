@@ -16,7 +16,6 @@
         - .find()
         - .findIndex()
         - .reduce()
-        - .some()
         - for…of
     - Objects
         - dot notation 
@@ -36,10 +35,3 @@
     - break statement
     - continue statement
         
-- Use conditional statements/control flow (decision point)
-    - if statements
-    - if…else statement
-    - else if statement
-    - Ternary operator
-    - switch…case statement
-
