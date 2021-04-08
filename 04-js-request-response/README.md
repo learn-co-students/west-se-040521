@@ -43,3 +43,24 @@ curl -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) 
 - [Rapper Status Codes](http://httpstatusrappers.com/)
 
 
+## Common HTTP Methods/Verbs
+- GET: Gets something from the server
+- POST: Create new info on the server
+- PATCH: Update/change existing data on the server
+- DELETE: Delete/remove existing data from server
+
+## Status codes by category
+- 1xx - Informational response and the server is continuing to process it
+- 2xx - The request was successfully received
+- 3xx - More needs to be done to complete the request 
+- 4xx - The request is wrong
+- 5xx - The server failed
+
+
+#### Can a browser POST?
+Native HTML forms _can_ send POST requests in the absence of Javascript to process the form content, but whenever JS is present, it's preferable to let JS handle the POST request.
+```HTML
+<form action="/www.domain.com/catpics" method="POST"> 
+
+</form>
+```
