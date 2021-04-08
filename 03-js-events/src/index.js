@@ -1,4 +1,10 @@
+// Listen for DOMContentLoaded event so that JavaScript doesn't execute until after the page has loaded
+document.addEventListener('DOMContentLoaded', () => {
+    addListeners()
+    loadCat(allCats[0])
+})
 
+// array of cat objects to mock data we might receive from an API/server
 let allCats = [
     {
         "id":0,
@@ -63,16 +69,18 @@ function handleSubmit(event){
     event.target.reset()
 }
 
+
 // register listeners
 function addListeners(){
     // const ul = document.querySelector('#cat_ul')
     // const ul = document.getElementById('cat_ul')
     const lis = document.querySelectorAll('#cat_ul li')
+    const form = document.querySelector('#cat_form')
+    const btn = document.querySelector('#add_cat_btn')
     // console.log(lis)
     lis.forEach(function(li){
         li.addEventListener('click', handleClick)
     })
-    const form = document.querySelector('#cat_form')
     form.addEventListener('submit', event => handleSubmit(event))
+    btn.addEventListener('click', () => form.classList.toggle('hide'))
 }
-addListeners()
