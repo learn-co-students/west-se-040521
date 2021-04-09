@@ -1,0 +1,4 @@
+{
+    "/users": "/users?_embed=books",
+    "/users/:id": "/users/:id?_embed=books"
+}
