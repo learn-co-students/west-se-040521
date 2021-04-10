@@ -6,6 +6,16 @@
 - [ ] Use POSTMAN to make CRUD requests to your JSON server
 - [ ] Understand resource relationships in json-server
 
+## Define CRUD
+C - CREATE (POST)
+R - READ (GET)
+U - UPDATE (PATCH(PUT))
+D - DELETE (DELETE)
+
+## Why json-server
+- JSON is language agnostic
+- allows front-end development to happen quickly without building the server-side
+
 # json-server-practice
 
 Mini project to familiarize the use of `json-server`, and practice building a basic `db.json` server and some of it's advanced functionality!
@@ -238,6 +248,17 @@ We are hosting a server!
 However, a server sitting by itself doesn't have a lot of practical purposes...let's figure out how we can connect this server to our code! 
 
 Reminder, you can exit your server at any time by hitting `ctrl+c` in your terminal.
+
+#### Endpoints by JSON server:
+
+REST API
+```
+GET    /users
+GET    /users/:id
+POST   /users
+PATCH  /users/:id
+DELETE /users/:id
+```
 
 ## Interacting with our new DB
 
