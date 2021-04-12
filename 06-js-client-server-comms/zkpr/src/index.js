@@ -91,9 +91,15 @@ function renderOneAnimal(animalObj) {
 function initialize() {
   // TODO: get animals from the server
   // animalData is an array of animal objects from data.js
-  animalData.forEach((animal) => {
+  fetch("http://localhost:3000/animals")
+  .then((res) => res.json())
+  .then(animalData => {
+    console.log(animalData)
+    animalData.forEach((animal) => {
     renderOneAnimal(animal);
   });
+  })
+  
 }
 
 initialize();

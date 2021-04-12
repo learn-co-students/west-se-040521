@@ -19,3 +19,20 @@
 [using fetch]: (https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 [promises]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [loupe]: http://latentflip.com/loupe
+
+Asynchronous websites
+- 'build your own car' website
+- Twitter feed
+- Facebook feed
+- Stocktickers
+- Instagram Post 'like' heart
+
+Synchronous websites
+- Google 'next' page results links
+- Wiki links
+- Amazon checkout
+
+## Process of Single-Page Application (SPA) Architecture
+- When X event happens
+- Do Y Fetch
+- Update Z in the DOM
