@@ -14,6 +14,11 @@
   - When the donate button is clicked: `PATCH /animals/1`
 - [ ] Check for understanding: Exercise (in `/exercise` folder)
 
+ - C: create data | POST
+ - R: read data | GET
+ - U: update data | PATCH
+ - D: delete/destroy data | DELETE
+
 ## Intro
 
 This is the lecture when we finally can put together all three pillars of JS and

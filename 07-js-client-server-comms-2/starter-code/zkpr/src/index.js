@@ -1,3 +1,6 @@
+// set const for base URL
+const BASE_URL = "http://localhost:3000/animals"
+
 /********** Event Listeners **********/
 document
   .querySelector("#animal-form")
@@ -22,9 +25,20 @@ function handleAnimalFormSubmit(event) {
   };
 
   // TODO: create animal on the server
-
+  const config = {
+    method: "POST", // the HTTP verb for the request
+    headers: { // headers let us provide additonal 'meta-data' about the request
+      "Content-Type": "application/json" // tells the server what format we're sending in the BODY of the request
+    },
+    body: JSON.stringify(animalObj) // the object which we're sending to the server
+  }
+  fetch(BASE_URL, config)
+    .then(res => res.json())
+    .then(newAnimal => {
+      renderOneAnimal(newAnimal) // pessimistically rendered from server response
+    })
   // Step 2: slap it on the DOM
-  renderOneAnimal(animalObj);
+  // renderOneAnimal(animalObj); // optimistic rendering
 
   // (optional) Step 3: clear the input fields
   event.target.reset();
@@ -39,9 +53,14 @@ function handleAnimalListClick(event) {
     const card = button.closest(".card");
 
     // remove the animal card
-    card.remove();
+    card.remove();  // optimistic rendering
 
     // TODO: delete animal from the server
+    console.log(card.dataset.id)
+    const config = {
+      method: "DELETE"
+    }
+    fetch(BASE_URL + `/${card.dataset.id}`, config)
   } else if (event.target.dataset.action === "donate") {
     // Update Animal
     const button = event.target;
@@ -54,9 +73,25 @@ function handleAnimalListClick(event) {
     const donationCount = parseInt(donationCountSpan.textContent);
 
     // update the DOM
-    donationCountSpan.textContent = donationCount + 10;
+    // donationCountSpan.textContent = donationCount + 10; // optimistic rendering
 
     // TODO: update animal on the server
+    const newDonation = {
+      donations: donationCount + 10
+    }
+    const config = {
+      method: "PATCH", // the HTTP verb for the request
+      headers: { // headers let us provide additonal 'meta-data' about the request
+        "Content-Type": "application/json" // tells the server what format we're sending in the BODY of the request
+      },
+      body: JSON.stringify(newDonation) // the object which we're sending to the server
+    }
+    fetch(BASE_URL + `/${card.dataset.id}`, config)
+      .then(res => res.json())
+      .then(updatedAnimal => {
+        donationCountSpan.textContent = updatedAnimal.donations // pessimistically renders donations from the server
+      })
+
   }
 }
 
@@ -66,7 +101,7 @@ function renderOneAnimal(animalObj) {
   // step 1. create the outer element using createElement (& assign necessary attributes)
   const card = document.createElement("li");
   card.className = "card";
-
+  card.dataset.id = animalObj.id
   // step 2. use innerHTML to create all of its children
   card.innerHTML = `
   <img src="${animalObj.imageUrl}" alt="${animalObj.name}">
@@ -90,7 +125,7 @@ function renderOneAnimal(animalObj) {
 /********** Initial Render **********/
 function initialize() {
   // GET animals
-  fetch("http://localhost:3000/animals")
+  fetch(BASE_URL)
     .then((response) => response.json())
     .then((animalArray) => {
       // for each animal in the array
