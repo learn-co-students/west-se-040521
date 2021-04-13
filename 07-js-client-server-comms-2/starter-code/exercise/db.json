@@ -15,6 +15,30 @@
     {
       "id": 4,
       "name": "rebeccapurple"
+    },
+    {
+      "name": "green",
+      "id": 5
+    },
+    {
+      "name": "green",
+      "id": 6
+    },
+    {
+      "name": "green",
+      "id": 7
+    },
+    {
+      "name": "orange",
+      "id": 8
+    },
+    {
+      "name": "slateblue",
+      "id": 9
+    },
+    {
+      "name": "silver",
+      "id": 10
     }
   ]
 }
