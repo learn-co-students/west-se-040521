@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script defer src="./src/index.js"></script>
+    <link rel="stylesheet" href="./main.css" />
+    <title>zkpr.</title>
+  </head>
+  <body>
+    <header id="menu">
+      <h1>welcome to zkpr.</h1>
+    </header>
+    <div class="container">
+      <form id="animal-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" />
+        <label for="name">Image URL</label>
+        <input type="text" id="image_url" name="image_url" />
+        <label for="description">Description</label>
+        <textarea id="description" name="description"></textarea>
+        <button type="submit">Adopt Animal</button>
+      </form>
+      <ul id="animal-list" class="cards">
+        <!-- Animals here -->
+      </ul>
+    </div>
+  </body>
+</html>
