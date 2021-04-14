@@ -39,6 +39,10 @@
     {
       "name": "silver",
       "id": 10
+    },
+    {
+      "name": "black",
+      "id": 11
     }
   ]
 }

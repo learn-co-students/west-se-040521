@@ -37,9 +37,20 @@ function renderColor(colorObj){
 }
 
 // initial fetch
-const initialize = () => {
+// const initialize = () => {
+//     fetch(url)
+//     .then(r => r.json())
+//     .then(colorArr => colorArr.forEach(color => renderColor(color)))
+// }
+function initialize(){
     fetch(url)
-    .then(r => r.json())
-    .then(colorArr => colorArr.forEach(color => renderColor(color)))
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(colorArr){
+            colorArr.forEach(function(color){
+                renderColor(color)
+            })
+        })
 }
 initialize()
