@@ -20,7 +20,7 @@ This will serve your code on `http://localhost:3000`.
 
 ### Build the following application in Vanilla JS
 
-![example GIF](http://curriculum-content.s3.amazonaws.com/module-3/bookliker-example.gif)
+![example GIF](https://curriculum-content.s3.amazonaws.com/module-3/bookliker-example.gif)
 
 You will be using the following backend to get the list of books. The expectation here is that you will include the following features
 
