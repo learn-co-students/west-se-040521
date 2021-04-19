@@ -1,0 +1,16 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "Miyuki"
+        }
+    ],
+    "cryptos": [
+        {
+            "id": 1,
+            "userId": 1,
+            "name": "Bitcoin",
+            "ticker": "btc"
+        }
+    ]
+}

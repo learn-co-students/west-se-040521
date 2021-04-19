@@ -15,7 +15,8 @@ document
 function handleAnimalFormSubmit(event) {
   // Step 0: always prevent default for form submit events
   event.preventDefault();
-
+  console.log(event.target.image_url.value);
+  
   // Step 1: get user input from the form input fields
   const animalObj = {
     name: event.target.name.value,
