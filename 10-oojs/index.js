@@ -27,13 +27,11 @@
 
 class Cat {
 
-    constructor(myName, myBreed){
-        // console.log('THE NAME IS: ', name)
-        // console.log('THE BREED IS: ', breed)
-        // console.log("Hello, I am: ", this)
+    constructor(myName, myBreed, myWeight = 70){
         // this => Referring to the instance being created
         this.name = myName
         this.breed = myBreed
+        this.weight = myWeight
     }
 
     introduce(){
@@ -42,8 +40,13 @@ class Cat {
         return `Meow, my name is ${this.name} and I'm a ${this.breed}.`
     }
 
+    eat(foodName){
+        this.weight += 10
+        return `Yum, thanks for the ${foodName}. I now weigh ${this.weight}.`
+    }
+
 }
 
 let helloKitty = new Cat("HelloKitty", "Cartoon")
-let garfield = new Cat("Garfield", "Persian Tabby")
-let keyboardCat = new Cat("Keyboard Cat", "Meowsician")
+let garfield = new Cat("Garfield", "Persian Tabby", 90)
+let keyboardCat = new Cat("Keyboard Cat", "Meowsician", 80)
