@@ -4,7 +4,7 @@
   By the end of this lesson, SWBAT:
 - [ ] create a Class in JavaScript using ES6 syntax
 - [ ] instantiate a new instance of a Cat class
-- [ ] write and execute an instance method 
+- [ ] write and execute an instance method/function 
 
 ## Key Questions
 * What are some limitations of using Plain Old JavaScript Objects (POJOs) to store information?
