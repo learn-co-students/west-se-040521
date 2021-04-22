@@ -5,3 +5,73 @@
 
 /* How can I give just a single image a max-width? */
 
+.banner {
+  background-image: url("./assets/summer.jpeg");
+  background-position: center;
+  background-size: cover;
+  margin: 0 auto;
+  width: 90%;
+  height: 300px;
+}
+
+.banner-overlay {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.header {
+  line-height: 300px;
+  text-align: center;
+  color: teal;
+  font-size: 60px;
+  font-family: fantasy;
+  margin: 0;
+}
+
+/* div {
+  border: 1px solid black
+} */
+
+div.nav ul {
+  margin: 0 auto;
+  background-color: lightgray;
+  height: 40px;
+  /* text-align: center; */
+  width: 90%;
+}
+
+div.nav li {
+  display: inline-block;
+  line-height: 40px;
+  padding: 0 20px;
+}
+
+div.nav li:hover {
+  background-color: turquoise;
+}
+
+div.nav ul li a {
+  color: orangered;
+  text-decoration: none;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.main-container {
+  display: flex;
+  /* flex-direction: row;
+  flex-wrap: wrap; */
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+div.card {
+  padding: 15px;
+  margin: 10px 0;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 12px 11px teal;
+}
+
+div.card img{
+  width: 150px;
+}

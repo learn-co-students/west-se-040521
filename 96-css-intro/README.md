@@ -53,7 +53,7 @@ Makes the internet look pretty
 
 ## Inline Styling
 
-```
+```html
 <tag style="property:value or values;”>
 ```
 
@@ -164,6 +164,7 @@ You can style your website very quickly by using a framework, but there are some
 [w3schools](https://www.w3schools.com/html/default.asp) - Great HTML resource  
 [w3schools](https://www.w3schools.com/html/html_elements.asp) - Great CSS resource  
 [CSS Tricks](https://css-tricks.com/) - The best resource for learning and understanding flexbox and grid  
+[CSS Specificity](https://css-tricks.com/specifics-on-css-specificity/) - a great guide to how CSS calculates the specificity of selectors when resolving conflicting style rules
 [CSS Grid Guide](https://css-tricks.com/snippets/css/complete-guide-grid/) - Takes you straight to the grid page  
 [CSS MDN](https://developer.mozilla.org/en-US/docs/Web/CSS) - Another goodie  
 [CSS Zen Garden](http://www.csszengarden.com/) - Great examples of some rock solid CSS experiences  
