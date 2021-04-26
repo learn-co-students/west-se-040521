@@ -33,3 +33,8 @@ ReactDOM.render(
 );
 ```
 
+Vanilla JS problems:
+- grabbing many elements created in JS
+- scoping issues
+- keeping DOM and data in sync
+- difficulties organizing code
