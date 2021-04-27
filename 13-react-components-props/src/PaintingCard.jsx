@@ -1,6 +1,10 @@
 const PaintingCard = (props) => {
-    console.log(props)
+    // console.log(props)
+    
+    // We can use ES6 destructuring assignment to save the values of the painting object as individual variables
     const {image, slug, title, votes, artist} = props.painting
+
+    // then we can use those destructured variables in our JSX below
     return (
         <div className="item">
             <div className="ui small image">
