@@ -9,7 +9,9 @@
 * Create event handler callbacks that manipulate state
 * Know the difference between container and presentational components
 
-
+## Imperative vs. Declarative
+Imperative: telling how to do something
+Declarative: telling *what* you want the outcome to me
 
 ### CFU: Using state and events to update state
 
