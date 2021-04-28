@@ -10,8 +10,13 @@
 * Know the difference between container and presentational components
 
 ## Imperative vs. Declarative
-Imperative: telling how to do something
-Declarative: telling *what* you want the outcome to me
+- Imperative: telling *how* to do something
+- Declarative: telling *what* you want the outcome to be
+
+## Resources
+* [Props vs State](https://github.com/uberVU/react-guide/blob/master/props-vs-state.md)
+* [React Events List](https://reactjs.org/docs/events.html)
+* [MDN Class Fields (initializing state outside of a the constructor)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields)
 
 ### CFU: Using state and events to update state
 
@@ -22,4 +27,5 @@ Tasks:
 3. Display votes for each painting and a button to add a vote
 4. When `Add Vote` button is clicked increment vote and update the state
 5. **Optional** Use `semantic ui` package to give some styling for votes functionality
+
 

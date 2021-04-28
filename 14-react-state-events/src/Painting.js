@@ -1,17 +1,50 @@
-const Painting = props => {
-  return (
-    <div>
-      <img src={props.painting.image} />
-      <h4>
-        "{props.painting.title}" by {props.painting.artist.name}
-      </h4>
-      <p>Year: {props.painting.date}</p>
-      <p>
-        Dimensions: {props.painting.dimensions.width} in. x {props.painting.dimensions.height} in.
-      </p>
-    </div>
-      
-  );
+import React, { Component } from 'react'
+
+
+
+class Painting extends Component {
+
+  // constructor(props){
+  //   super(props)
+  //   this.state = {
+  //     votes: props.painting.votes
+  //   }
+  // }
+
+  state = {
+    votes: this.props.painting.votes
+  }
+
+  addVotes = () => {
+    this.setState({ votes: this.state.votes + 1})
+  }
+
+  render(){
+    return (
+      <div>
+        <img src={this.props.painting.image} />
+        <h4>
+          "{this.props.painting.title}" by {this.props.painting.artist.name}
+        </h4>
+        <p>Year: {this.props.painting.date}</p>
+        <p>
+          Dimensions: {this.props.painting.dimensions.width} in. x {this.props.painting.dimensions.height} in.
+        </p>
+        {/* <span>Votes: {this.state.votes}</span>
+        <button onClick={this.addVotes}>Add Vote</button> */}
+        <div class="ui labeled button" tabindex="0">
+          <div class="ui red button" onClick={this.addVotes}>
+            <i class="heart icon"></i> Add Vote
+          </div>
+          <a class="ui basic red left pointing label">
+            {this.state.votes}
+          </a>
+        </div> 
+      </div>
+    
+        
+    );
+  }
 };
 
 export default Painting;
