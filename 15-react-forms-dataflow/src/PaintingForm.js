@@ -2,6 +2,20 @@ import React from 'react'
 
 class PaintingForm extends React.Component{
 
+    constructor(){
+        super()
+        this.state = {
+            image: ""
+        }
+    }
+
+    handleImage = (event) => {
+        console.log(event.target.value)
+        this.setState({
+            image: event.target.value
+        })
+    }
+
     render(){
     return(
     <div>
@@ -10,7 +24,9 @@ class PaintingForm extends React.Component{
             <input 
             type="text" 
             name="image" 
-            placeholder="ImgURL"/> <br/>
+            placeholder="ImgURL"
+            value={this.state.image}
+            onChange={this.handleImage}/> <br/>
 
             <input 
             type="text" 
