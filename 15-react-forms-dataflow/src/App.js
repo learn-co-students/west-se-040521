@@ -49,8 +49,17 @@ class App extends React.Component{
     })
   }
 
-  addVote = () => {
-
+  addVote = (id) => {
+    console.log("in addVote", id)
+    this.setState({
+      paintings: this.state.paintings.map(pObj => {
+        if(pObj.id === id){
+          return {...pObj, votes: pObj.votes + 1}
+        } else {
+          return pObj
+        }
+      })
+    })
   }
 
   render(){
@@ -67,7 +76,7 @@ class App extends React.Component{
 
       <button onClick={this.toggleForm}>Show/Hide new painting form</button>
 
-      {this.state.formView ? <PaintingForm addPainting={this.addPainting}/> : <PaintingsList paintings={this.state.paintings} />}
+      {this.state.formView ? <PaintingForm addPainting={this.addPainting}/> : <PaintingsList paintings={this.state.paintings} addVote={this.addVote}/>}
 
     </div>
   )

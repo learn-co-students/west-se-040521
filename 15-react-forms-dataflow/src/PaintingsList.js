@@ -10,6 +10,7 @@ class PaintingsList extends React.Component{
         <Painting
           key={painting.id}
           painting={painting}
+          addVote={this.props.addVote}
         />
       ))
       }

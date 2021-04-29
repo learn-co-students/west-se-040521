@@ -28,11 +28,11 @@ class Painting extends React.Component{
         </p>
 
         <div class="ui labeled button" tabindex="0">
-          <div class="ui red button" onClick={this.addVote}>
+          <div class="ui red button" onClick={() => this.props.addVote(this.props.painting.id)}>
             <i class="heart icon"></i> Add Vote
           </div>
           <a class="ui basic red left pointing label">
-            {this.state.votes}
+            {this.props.painting.votes}
           </a>
         </div>
       </div>

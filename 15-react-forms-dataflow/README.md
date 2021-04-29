@@ -17,3 +17,8 @@
 * How could you update the code so that adding a vote would update the value on the corresponding painting object in App's state?
   * Think about what you could pass to the addVote() callback that could help you find the right object in `this.state.paintings`
   * Also consider how you will get the addVote() callback from App into each Painting component
+
+## Resources
+
+* [Thinking in React](https://reactjs.org/docs/thinking-in-react.html) A great walkthrough of building a React app from scratch
+* [computed property name](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names)
