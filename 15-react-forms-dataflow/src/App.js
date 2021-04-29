@@ -27,6 +27,32 @@ class App extends React.Component{
     })
   }
 
+
+  addPainting = (data) => {
+    console.log(data)
+    const newPainting = {
+      image: data.image,
+      title: data.title,
+      artist: {
+        name: data.artist
+      },
+      date: data.date,
+      dimensions: {
+        width: data.width,
+        height: data.height
+      },
+      votes: 0
+    }
+    this.setState({
+      paintings: [...this.state.paintings, newPainting],
+      formView: !this.state.formView
+    })
+  }
+
+  addVote = () => {
+
+  }
+
   render(){
   return (
     <div>
@@ -41,7 +67,7 @@ class App extends React.Component{
 
       <button onClick={this.toggleForm}>Show/Hide new painting form</button>
 
-      {this.state.formView ? <PaintingForm/> : <PaintingsList paintings={this.state.paintings} />}
+      {this.state.formView ? <PaintingForm addPainting={this.addPainting}/> : <PaintingsList paintings={this.state.paintings} />}
 
     </div>
   )

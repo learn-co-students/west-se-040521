@@ -4,16 +4,16 @@ class Painting extends React.Component{
 
   constructor(props){
     super()
-    this.state = {
-      votes: props.painting.votes
-    }
+    // this.state = {
+    //   votes: props.painting.votes
+    // }
   }
 
-  addVote = () => {
-    this.setState({
-      votes: this.state.votes + 1
-    })
-  }
+  // addVote = () => {
+  //   this.setState({
+  //     votes: this.state.votes + 1
+  //   })
+  // }
 
   render(){
     return (

@@ -2,6 +2,7 @@
 
 ## SWBATs
 * Write fully controlled forms
+* Know how to use computed properties to simplify form change handlers
 * Practice data flow in react
 
 
@@ -11,3 +12,8 @@
   * Update the code so that text entered in each input element updates the corresponding key/value pair in state.
 
 
+## CFU: Updating votes (if time allows)
+
+* How could you update the code so that adding a vote would update the value on the corresponding painting object in App's state?
+  * Think about what you could pass to the addVote() callback that could help you find the right object in `this.state.paintings`
+  * Also consider how you will get the addVote() callback from App into each Painting component
