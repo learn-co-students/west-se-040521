@@ -1,0 +1,15 @@
+.bob {
+    background-image: url(https://media1.tenor.com/images/d6ef51306fdebbca8da9c999d7a10ab3/tenor.gif?itemid=13413416);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: pink;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    background-size: 100% 100%;
+}
+
+.bob-btn {
+    margin-top: 24px !important;
+}
