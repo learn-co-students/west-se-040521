@@ -3,25 +3,34 @@ import 'semantic-ui-css/semantic.min.css';
 import NavBar from './NavBar';
 import PaintingsList from './PaintingsList';
 import PaintingForm from './PaintingForm'
-import paintings from './painting_data'
+// import paintings from './painting_data'
 import Bob from './Bob'
+import { findRenderedDOMComponentWithClass } from 'react-dom/test-utils';
 
 class App extends React.Component{
 
   constructor(){
+    console.log("APP: Constructor")
     super()
     this.state = {
       color: "red",
-      paintings: paintings,
+      paintings: [],
       formView: false,
       bobView: false // toggle-able boolean for conditional rendering of <Bob />
     }
   }
-
+  
+  componentDidMount() {
+    console.log("APP: ComponentDidMount")
+    fetch('http://localhost:3000/paintings')
+    .then(res => res.json())
+    .then(paintings => this.setState({ paintings }))
+  }
+  
   changeColor = () => {
     this.setState({color: "yellow"})
   }
-
+  
   toggleForm = () => {
     this.setState({
       formView: !this.state.formView
@@ -60,7 +69,7 @@ class App extends React.Component{
   }
 
   render(){
-  
+  console.log("APP: Render")
   return (
     <div>
 
