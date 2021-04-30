@@ -10,7 +10,16 @@ class Bob extends Component {
     }
 
     // TODO: MAKE BOB MOVE EVERY SECOND
-    
+    componentDidMount() {
+        console.log("BOB: ComponentDidMount")
+        this.timer = setInterval(() => {
+            this.move()
+        }, 1000)
+    }
+
+    componentWillUnmount() { // this method is commonly used to clean up an component side-effects, like timers or network calls
+        clearInterval(this.timer)
+    }
     
   
     // CALL THIS EVERY SECOND TO MOVE THE BOB

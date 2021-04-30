@@ -9,6 +9,21 @@ class Painting extends React.Component{
     }
   }
 
+  componentDidUpdate(prevProps, prevState){  // if you aren't going to use prevProps, you can use _ as a placeholder like (_, prevState)
+    console.log("Painting: ComponentDidUpdate")
+
+    // we access current props with this.props
+    // and current state with this.state
+    
+    // prevState contains state before update
+    // prevProps contains props before update
+
+    if (prevState.votes < this.state.votes){
+      console.log("Painting got a new vote!")
+    }
+
+  }
+
   addVote = () => {
     this.setState({
       votes: this.state.votes + 1

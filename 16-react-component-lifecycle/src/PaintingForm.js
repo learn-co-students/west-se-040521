@@ -14,6 +14,10 @@ class PaintingForm extends React.Component{
         }
     }
 
+    componentWillUnmount() {
+        console.log("PaintingFORM: ComponentWillUnmount")
+    }
+
     handleChange = (e) => {
         this.setState({
             // image: e.target.value

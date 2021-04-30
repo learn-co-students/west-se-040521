@@ -20,11 +20,13 @@ class App extends React.Component{
     }
   }
   
+  // componentDidMount() is often used for initial fetches
+  // lifecycle methods are only available on class components
   componentDidMount() {
     console.log("APP: ComponentDidMount")
     fetch('http://localhost:3000/paintings')
     .then(res => res.json())
-    .then(paintings => this.setState({ paintings }))
+    .then(paintings => this.setState({ paintings })) // { paintings } is the same as { paintings: paintings }
   }
   
   changeColor = () => {
@@ -72,7 +74,7 @@ class App extends React.Component{
   console.log("APP: Render")
   return (
     <div>
-
+      {/* conditional rendering of a single component using logical AND */}
       {this.state.bobView && <Bob/>}
 
 
