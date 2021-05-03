@@ -22,3 +22,19 @@ BONUS: Hide hogs (not remove from db, doesn't say to bring them back)
         - HogsList
             - HogTile (many)
         - HogDetail (conditionally rendered with HogsList)
+
+## Image Paths
+./hog-imgs/piggy_smalls.jpg (Image example)
+
+let pigImage = require('../hog-imgs/piggy_smalls.jpg')
+
+## Static Hogs Data
+const hogs = [
+  {
+    name: 'Babe',
+    specialty: 'Being incredibly cute',
+    greased: false,
+    weight: 2.0,
+    'highest medal achieved': 'bronze'
+  }
+]
