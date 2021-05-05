@@ -9,7 +9,8 @@ class App extends Component {
 
   state = {
     allSushis: [],
-    currIndex: 0
+    currIndex: 0,
+    money: 100
   }
 
   componentDidMount() {
@@ -31,6 +32,16 @@ class App extends Component {
 
   eatSushi = sushi => {
     console.log('ate a soosh')
+    if (sushi.eaten) {
+      alert("You can't eat what's in your belly!")
+    } else if (sushi.price > this.state.money){
+      alert("You broke the bank! No mo soosh!")
+    } else {
+      sushi.eaten = true
+      // TODO: forceUpdate is temp workaround until we update money
+      // this.forceUpdate()
+      this.setState({ money: this.state.money - sushi.price})
+    }
   }
 
   render() {
@@ -41,7 +52,10 @@ class App extends Component {
           nextFour={this.nextFour}
           eatSushi={this.eatSushi}
         />
-        <Table />
+        <Table 
+        eatenSushis={this.state.allSushis.filter(s => s.eaten === true)}
+        money={this.state.money}
+        />
       </div>
     );
   }

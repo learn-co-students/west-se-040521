@@ -6,7 +6,7 @@ const Sushi = ({ sushi, eatSushi }) => {
   return (
     <div className="sushi">
       <div className="plate" 
-           onClick={eatSushi}>
+           onClick={() => eatSushi(sushi)}>
         { 
           sushi.eaten ?
             null

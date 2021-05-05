@@ -52,15 +52,15 @@ Inspectors will be coming by to check that our patented Sushi Saga conveyor belt
 3. [X] Clicking the "More Sushi!" button shows the next set of 4 sushi in the list. For this assignment, you don't have to be concerned about what happens when you reach the end of the sushi list.
     - a cb function passed down to the button
     - will update something in state (?)
-4. [] Clicking a sushi on a plate will eat the sushi, causing it to be removed from its plate and an empty plate to appear on the table.
+4. [x] Clicking a sushi on a plate will eat the sushi, causing it to be removed from its plate and an empty plate to appear on the table.
     - a cb eatSushi passed down to Sushi
     - sushis are displayed based on eated status
     - where to keep eaten? in state? as an attr of a sushi obj?
     - Table expects an array of eaten sushis
-5. [] We need to make money! Whenever a sushi is eaten, customers should be automatically charged! Based on a budget decided by you, the developer, the amount of money remaining should go down by the cost of the sushi that was eaten. There is a spot to display this number in the `Table` component
+5. [x] We need to make money! Whenever a sushi is eaten, customers should be automatically charged! Based on a budget decided by you, the developer, the amount of money remaining should go down by the cost of the sushi that was eaten. There is a spot to display this number in the `Table` component
     - initialize state with money: integer
     - update eatSushi to also update money in state
-6. [] No free meals! Customers cannot eat any sushi that exceeds the amount of money remaining in their balance
+6. [X] No free meals! Customers cannot eat any sushi that exceeds the amount of money remaining in their balance
     - another update to eatSushi fn: adds a conditional check
 
 ### Bonus
