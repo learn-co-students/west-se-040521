@@ -31,25 +31,57 @@ The component hierarchy should be as follows:
 - `App` is parent to both `SushiContainer` and `Table`
 - `SushiContainer` is parent to both `Sushi` and `MoreButton`
 
+- App
+    - SushiContainer
+        - Sushi*
+        - MoreButton
+    - Table
+
 Be sure to read all of the notes in the all of the components before getting started! They will give you clues as to how and where to manage `state` and `props`
 
 ## Deliverables
 
 Inspectors will be coming by to check that our patented Sushi Saga conveyor belt is working properly! Oh no! They will be checking the following:
 
-1. Sushi list is properly received from the server
-2. Only 4 sushi are rendered at a time
-3. Clicking the "More Sushi!" button shows the next set of 4 sushi in the list. For this assignment, you don't have to be concerned about what happens when you reach the end of the sushi list.
-4. Clicking a sushi on a plate will eat the sushi, causing it to be removed from its plate and an empty plate to appear on the table.
-5. We need to make money! Whenever a sushi is eaten, customers should be automatically charged! Based on a budget decided by you, the developer, the amount of money remaining should go down by the cost of the sushi that was eaten. There is a spot to display this number in the `Table` component
-6. No free meals! Customers cannot eat any sushi that exceeds the amount of money remaining in their balance
+1. [X] Sushi list is properly received from the server
+    - fetch in componentDidMount
+    - keep in state in arr
+2. [X] Only 4 sushi are rendered at a time
+    -  X first render all sushis, THEN figure out how to limit
+    - what should go in state? currentSush(int)? a 2nd array
+3. [X] Clicking the "More Sushi!" button shows the next set of 4 sushi in the list. For this assignment, you don't have to be concerned about what happens when you reach the end of the sushi list.
+    - a cb function passed down to the button
+    - will update something in state (?)
+4. [] Clicking a sushi on a plate will eat the sushi, causing it to be removed from its plate and an empty plate to appear on the table.
+    - a cb eatSushi passed down to Sushi
+    - sushis are displayed based on eated status
+    - where to keep eaten? in state? as an attr of a sushi obj?
+    - Table expects an array of eaten sushis
+5. [] We need to make money! Whenever a sushi is eaten, customers should be automatically charged! Based on a budget decided by you, the developer, the amount of money remaining should go down by the cost of the sushi that was eaten. There is a spot to display this number in the `Table` component
+    - initialize state with money: integer
+    - update eatSushi to also update money in state
+6. [] No free meals! Customers cannot eat any sushi that exceeds the amount of money remaining in their balance
+    - another update to eatSushi fn: adds a conditional check
 
 ### Bonus
 
 If and only if you have time, you may work on the following:
 
-1. SushiWallet! Add a form for customers to add more money to their balance
-2. Full rotation! When the end of the line of sushi is reached, the conveyor belt should start from the beginning. Sushi that have already been eaten should remain eaten. It would be creepy if they reappeared!
+1. [] SushiWallet! Add a form for customers to add more money to their balance
+    - a new cb fn that lives where state.money lives
+    - does it need to be a form? could be a prompt?
+2. [] Full rotation! When the end of the line of sushi is reached, the conveyor belt should start from the beginning. Sushi that have already been eaten should remain eaten. It would be creepy if they reappeared!
+    - adds a contional to moreSushi cb, do comparison with allSushi.length
+    - will be easier if we keep an index to compare with allSushi.length
+    - 'remain eaten' argues for 'eaten' being a property of each sushi obj
 3. Anything else!
 
 **Note:** If at the end of the challenge you have achieved all the functionality required but the style looks off, this is okay!
+
+{
+      "id": 1,
+      "name": "Maguro Magic",
+      "img_url": "./sushi/maguro.png",
+      "price": 20,
+      "created_at": "2018-07-27T18:53:16.241Z"
+}
