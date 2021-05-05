@@ -67,10 +67,10 @@ Inspectors will be coming by to check that our patented Sushi Saga conveyor belt
 
 If and only if you have time, you may work on the following:
 
-1. [] SushiWallet! Add a form for customers to add more money to their balance
+1. [x] SushiWallet! Add a form for customers to add more money to their balance
     - a new cb fn that lives where state.money lives
     - does it need to be a form? could be a prompt?
-2. [] Full rotation! When the end of the line of sushi is reached, the conveyor belt should start from the beginning. Sushi that have already been eaten should remain eaten. It would be creepy if they reappeared!
+2. [X] Full rotation! When the end of the line of sushi is reached, the conveyor belt should start from the beginning. Sushi that have already been eaten should remain eaten. It would be creepy if they reappeared!
     - adds a contional to moreSushi cb, do comparison with allSushi.length
     - will be easier if we keep an index to compare with allSushi.length
     - 'remain eaten' argues for 'eaten' being a property of each sushi obj

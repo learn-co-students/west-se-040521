@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SushiContainer from './containers/SushiContainer';
 import Table from './containers/Table';
+import WalletForm from './components/WalletForm'
 
 // Endpoint!
 const API = "http://localhost:3000/sushis"
@@ -27,7 +28,14 @@ class App extends Component {
   }
 
   nextFour = () => {
-    this.setState({ currIndex: this.state.currIndex + 4})
+    this.setState(prevState => {
+      let tempIndex
+      if (prevState.currIndex + 4 >= prevState.allSushis.length){
+        tempIndex = 0
+      } else {
+        tempIndex = prevState.currIndex + 4
+      }
+      return { currIndex: tempIndex}})
   }
 
   eatSushi = sushi => {
@@ -44,6 +52,22 @@ class App extends Component {
     }
   }
 
+  getEaten = () => {
+    return this.state.allSushis.filter(s => s.eaten === true)
+  }
+
+  addMoney = (amt) => {
+    // let amt = prompt("How much money are you adding?")
+    // if(!amt.match(/[0-9/]/)){
+    //   alert("Must enter numbers only!")
+    // } else {
+    //   let newMoney = parseInt(amt) + this.state.money
+    //   this.setState({money: newMoney})
+    // }
+    let newMoney = parseInt(amt.amount) + this.state.money
+    this.setState({money: newMoney})
+  }
+
   render() {
     return (
       <div className="app">
@@ -53,9 +77,11 @@ class App extends Component {
           eatSushi={this.eatSushi}
         />
         <Table 
-        eatenSushis={this.state.allSushis.filter(s => s.eaten === true)}
+        eatenSushis={this.getEaten()}
         money={this.state.money}
         />
+        {/* <button onClick={this.addMoney}>Add $$$</button> */}
+        <WalletForm addMoney={this.addMoney} />
       </div>
     );
   }
