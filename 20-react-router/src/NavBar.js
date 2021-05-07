@@ -12,6 +12,7 @@ const NavBar = props => {
       </a>
       <button onClick={props.changeColor}>Change color</button>
       <div className="right menu">
+        {/* the class names below are only to add semantic-ui styling and not required by react-router */}
         <Link to='/paintings/about' className="item">About</Link>
         <Link to='/paintings/new' className="item">Add a painting</Link>
         <Link to='/paintings' className="item">Go to Painting List</Link>

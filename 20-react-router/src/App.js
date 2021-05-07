@@ -73,13 +73,13 @@ class App extends React.Component{
       />
 
       {/* <button onClick={this.toggleForm}>Show/Hide new painting form</button> */}
-      {/* {url matches '/paintings/about' ? <About/> : null} */}
       {/* {this.state.formView 
       ? <PaintingForm addPainting={this.addPainting} /> 
       : <PaintingsList paintings={this.state.paintings} />} */}
 
       <Switch>
-
+        {/* think of <Switch> as adding if / else if / else to the <Route> conditionality  */}
+        {/* {url matches '/paintings/about' ? <About/> : null}  // this is psuedo-code for what <Route /> is doing */}
         <Route path='/paintings/about' component={About} />
         <Route path='/paintings/new' render={(routeProps) => <PaintingForm {...routeProps} addPainting={this.addPainting} /> } />
         <Route exact path='/paintings' render={() => <PaintingsList paintings={this.state.paintings}/>} />
