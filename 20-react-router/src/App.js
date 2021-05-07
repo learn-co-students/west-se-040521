@@ -3,6 +3,8 @@ import 'semantic-ui-css/semantic.min.css';
 import NavBar from './NavBar';
 import PaintingsList from './PaintingsList';
 import PaintingForm from './PaintingForm'
+import { Route, Switch } from 'react-router-dom';
+import About from './About';
 
 
 class App extends React.Component{
@@ -11,8 +13,8 @@ class App extends React.Component{
     super()
     this.state = {
       color: "red",
-      paintings: [],
-      formView: false
+      paintings: []
+      // formView: false
     }
   }
 
@@ -36,7 +38,7 @@ class App extends React.Component{
     // console.log(info)
 
     const newPainting = {
-      // id: this.state.paintings[this.state.paintings.length-1].id + 1, //BONUS to get rid of warning
+      id: this.state.paintings[this.state.paintings.length-1].id + 1, //BONUS to get rid of warning
       image: info.image,
       title: info.title,
       artist: {
@@ -70,12 +72,19 @@ class App extends React.Component{
         changeColor={this.changeColor}
       />
 
-      <button onClick={this.toggleForm}>Show/Hide new painting form</button>
-
-      {this.state.formView 
+      {/* <button onClick={this.toggleForm}>Show/Hide new painting form</button> */}
+      {/* {url matches '/paintings/about' ? <About/> : null} */}
+      {/* {this.state.formView 
       ? <PaintingForm addPainting={this.addPainting} /> 
-      : <PaintingsList paintings={this.state.paintings} />}
+      : <PaintingsList paintings={this.state.paintings} />} */}
 
+      <Switch>
+
+        <Route path='/paintings/about' component={About} />
+        <Route path='/paintings/new' render={(routeProps) => <PaintingForm {...routeProps} addPainting={this.addPainting} /> } />
+        <Route exact path='/paintings' render={() => <PaintingsList paintings={this.state.paintings}/>} />
+
+      </Switch>
     </div>
   )
   }

@@ -27,6 +27,7 @@ class PaintingForm extends React.Component{
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.addPainting(this.state)
+        this.props.history.push("/paintings")
     }
 
     render(){

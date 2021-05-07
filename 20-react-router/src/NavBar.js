@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 const NavBar = props => {
   return (
@@ -10,7 +11,12 @@ const NavBar = props => {
         </h2>
       </a>
       <button onClick={props.changeColor}>Change color</button>
+      <div className="right menu">
+        <Link to='/paintings/about' className="item">About</Link>
+        <Link to='/paintings/new' className="item">Add a painting</Link>
+        <Link to='/paintings' className="item">Go to Painting List</Link>
 
+      </div>
     </div>
   );
 };
