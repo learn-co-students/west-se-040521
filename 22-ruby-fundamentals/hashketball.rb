@@ -195,6 +195,25 @@ end
 
 # binding.pry
 
+# EXERCISE:
+# Define a method called get_names that takes an array of instructors
+# and returns just their names.
+# instructors = [
+#   {name: 'Alex', hometown: 'upstate ny', mood: 'excited'},
+#   {name: 'rachel', hometown: 'maine'},
+#   {name: 'maxwell', hometwon: 'brookyln'}
+# ]
+
+# def get_names(instructors)
+#   names = []
+#  instructors.each do |hash|
+#     names << hash[:name]
+#   end
+#   names
+# end
+
+# puts get_names(instructors)
+
 # EXERCISES on ITERATORS
 # What do the following return?
 
