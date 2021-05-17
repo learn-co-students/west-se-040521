@@ -7,3 +7,20 @@
 - access nested data from Hashes and Arrays 
 - read rspec test
 - implement each, map, find
+
+JS: Datatypes
+- Boolean
+- String
+- Number
+- Object
+- Array
+- Symbol (ES6)
+
+Ruby
+- Boolean
+- String
+- Numbers (Integers/Floats)
+- Hash
+- Array
+- Symbol
+

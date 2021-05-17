@@ -116,6 +116,102 @@ def game_hash
       ]
     }
   }
+  # puts "in the game_hash"
 end
 
-binding.pry
+
+def num_points_scored(player_name)
+  # get a list of all the players
+  # players = get_players
+  # iterate through players and find the player whose name matches the 'player_name' parameter
+  # return the value of the 'points' key from the matched player hash
+  # players.each do |player|
+  #   if player[:player_name] == player_name
+  #     return player[:points]
+  #   end
+  # end
+  # found = players.find do |player|
+  #   player[:player_name] == player_name
+  # end
+  # # binding.pry
+  # found[:points]
+
+  # refactor use of find above into helper method
+  find_player(player_name)[:points]
+end
+
+def shoe_size(player_name)
+  find_player(player_name)[:shoe]
+end
+
+def team_colors(team_name)
+  # binding.pry
+  # game_hash.each do |loc, team_data|
+  #   if team_data[:team_name] == team_name
+  #     return team_data[:colors]
+  #   end
+  # end
+  game_hash.values.each do |team_data|
+    # binding.pry
+    if team_data[:team_name] == team_name
+          return team_data[:colors]
+        end
+  end
+end
+
+def team_names
+  get_teams.map {|team_data| team_data[:team_name]}
+end
+
+def player_numbers(team_name)
+  players = find_team(team_name)[:players]
+  jerseys = players.map{|player| player[:number]}
+  return jerseys
+  # can refactor to:
+  # find_team(team_name)[:players].map{|player| player[:number]}
+  # binding.pry
+end
+
+# ********************
+# HELPERS
+# ********************
+
+def get_players
+  game_hash[:home][:players] += game_hash[:away][:players]
+end
+
+def find_player(player_name)
+  get_players.find { |player| player[:player_name] == player_name}
+end
+
+def get_teams
+  game_hash.values
+end
+
+def find_team(team_name)
+  get_teams.find {|team| team[:team_name] == team_name}
+end
+
+
+# binding.pry
+
+# EXERCISES on ITERATORS
+# What do the following return?
+
+arr = (1..10).to_a
+
+res = arr.map do |num|
+  num.even?
+end
+# res = arr.collect do |num|
+#   puts num.odd?
+# end
+
+odds = arr.select do |num|
+  num.odd?
+end
+
+seven_arr = arr.select {|num| num == 7 }
+seven = arr.find {|num| num == 17 }
+
+puts seven.inspect
