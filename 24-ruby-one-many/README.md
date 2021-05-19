@@ -32,3 +32,9 @@
 Refactor the User class so that it only uses a Single Source of Truth for tweets.
 
 ## Method Lookup Chain
+1. looks for local var
+2. looks for method
+3. if not called on an explicit object, implies self
+4. look for local bareword
+5. keeps broadening its scope
+6. finally raises an exception if unsuccessful

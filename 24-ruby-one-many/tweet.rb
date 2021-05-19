@@ -1,10 +1,12 @@
 class Tweet
 
-    @@all = []
+    @@all = [] # our single source of truth for tweets
 
     def self.all
         @@all
     end
+
+    attr_reader :user, :message
 
     def initialize(message, user)
         @message = message
@@ -12,16 +14,16 @@ class Tweet
         @@all << self
     end
 
-    def message
-        @message
-    end
+    # def message // standard reader, replaced by attr_reader
+    #     @message
+    # end
 
-    def user
-        @user
-    end
+    # def user // reader method
+    #     @user
+    # end
 
     def username
-        @user.username
+        self.user.username 
     end
 
 
