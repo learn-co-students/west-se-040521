@@ -9,6 +9,12 @@
 * Demonstrate single source of truth
 * Infer type of method (class or instance) through naming conventions
 
+- Model: a class whose primary purpose is to store data
+- Domain: The subject matter of the problem (eg. Canvas' domain is online learning)
+- Domain modeling: creating models for your domain to represent real or abstract ideas
+- Relationships: How one model is connected to another model
+ - One to many relationsip: describes a single mode that contains or tracks multiple instances of another model
+
 ## Deliverables
 
 * Create a User class. The class should have these methods:
@@ -21,5 +27,8 @@
   * `Tweet#user` that returns an instance of the user class
   * `Tweet.all` that returns all the Tweets created.
   * `Tweet#username` that returns the username of the tweet's user
+
+## CFU
+Refactor the User class so that it only uses a Single Source of Truth for tweets.
 
 ## Method Lookup Chain
