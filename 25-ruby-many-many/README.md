@@ -9,7 +9,7 @@
 
 ## Deliverables
 * User class
-  * `#like_tweet` that accepts as a tweet instance as a parameter
+  * `#like_tweet` that accepts a tweet instance as a parameter
   * `#liked_tweets` that returns a collection of all the tweets this user has liked
 * Tweet class
   * `#likers` that returns a collection of all the Users who have liked this tweet

@@ -1,6 +1,7 @@
 require 'pry'
 require_relative './user'
 require_relative './tweet'
+require_relative './like'
 
 
 coffee_dad = User.new("coffee_dad")
@@ -12,5 +13,8 @@ tweet_3 = tea_aunt.post_tweet("steeping my tea")
 tweet_4 = tea_aunt.post_tweet("ooo la ooolong")
 tweet_5 = tea_aunt.post_tweet("peppermint soooo wintry")
 
+coffee_dad.like_tweet(tweet_3)
+coffee_dad.like_tweet(tweet_5)
+tea_aunt.like_tweet(tweet_1)
 
 Pry.start(binding)

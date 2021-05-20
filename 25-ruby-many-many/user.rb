@@ -24,5 +24,16 @@ class User
         #create a new tweet
         Tweet.new(message, self)
     end
+
+    def like_tweet(tweet)
+        Like.new(self, tweet)
+    end
+
+    def likes
+        # returns an array of all likes belonging to this user
+        Like.all.select do |like|
+            like.user == self
+        end
+    end
     
 end
