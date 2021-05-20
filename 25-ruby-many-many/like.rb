@@ -1,7 +1,7 @@
 class Like
     
     # Class vars and methods
-    @@all = []
+    @@all = []  # our temporary "database"
     
     def self.all
         @@all
@@ -16,6 +16,7 @@ class Like
     def initialize(user, tweet)
         @user, @tweet = user, tweet 
         self.save
+        # @@all << self
     end
 
     def save

@@ -12,6 +12,7 @@ class User
         Tweet.all.select do |tweet|
             tweet.user == self
         end
+        # here is .select written out using a .map method instead
         # Tweet.all.map do |tweet|
         #     if tweet.user == self
         #         return tweet
@@ -30,10 +31,17 @@ class User
     end
 
     def likes
-        # returns an array of all likes belonging to this user
+        # returns an array of all likes belonging to this user instance
+        # look through all the likes
+        # select out each like where the likes user matches this user instance
         Like.all.select do |like|
             like.user == self
         end
+    end
+
+    def liked_tweets
+        # returns a collection of all the tweets this user has liked
+        self.likes.map {|like| like.tweet}
     end
     
 end

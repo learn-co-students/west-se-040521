@@ -8,7 +8,7 @@ class Tweet
     end
     
     attr_reader :message, :user
-    
+
     def initialize(message, user)
         @message = message
         @user = user
@@ -19,6 +19,16 @@ class Tweet
         self.user.username
     end
 
+    def likes
+        Like.all.select {|like|
+            # binding.pry
+            like.tweet == self
+        }
+    end
+
+    def likers
+        self.likes.map {|like| like.user}
+    end
 
 
 end
