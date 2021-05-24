@@ -30,6 +30,8 @@
 
 ### Migrations and Database Structure
 
+Trainer --< Boxers
+
 - we want to create our first model \(ruby class + sql table\)––how to we bridge the gap between sql data and our ruby classes?
 - What is a model? Our Ruby Class
 - What is a migration? Some ruby code that alters our schema
