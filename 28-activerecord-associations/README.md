@@ -9,6 +9,8 @@
     - Association Macros
     - Rake tasks
 
+Patient --< Appointment >-- Doctor
+
 ## CFU: Adding a has_many relationship
 * We'll be adding a Department model
 * the relationship will be a `Department` has many `Doctors`
