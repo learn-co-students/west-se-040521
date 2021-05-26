@@ -9,12 +9,12 @@
     - Association Macros
     - Rake tasks
 
-Patient --< Appointment >-- Doctor
+Patient --< Appointment >-- Doctor >-- Department
 
 ## CFU: Adding a has_many relationship
 * We'll be adding a Department model
 * the relationship will be a `Department` has many `Doctors`
-* create the necessary migration file and run the migration
+* create the necessary migration files and run the migration
 * create a `Department` model class and add the appropriate AR association macros
 * modify `seeds.rb` so that it creates the following Departments in the db: "Oncology", "Cardiology", "Pediatrics", "Radiology"
 * modify `seeds.rb` so that created Doctors belong to a deparment

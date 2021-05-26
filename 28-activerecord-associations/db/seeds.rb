@@ -1,6 +1,7 @@
 Appointment.destroy_all
 Patient.destroy_all
 Doctor.destroy_all
+Department.destroy_all
 
 # marge = Patient.new(name: "Marge Simpson", condition: "big hair")
 conditions = ["backache", "headache", "jaundice", "heartache", "nausea"]
@@ -9,10 +10,13 @@ conditions = ["backache", "headache", "jaundice", "heartache", "nausea"]
 end
 
 # ADD CODE for Departments here
-
+departments = ["Oncology", "Cardiology", "Pediatrics", "Radiology"]
+departments.each do |department|
+    Department.create(name: department)
+end
 
 5.times do 
-    Doctor.create(name: Faker::Name.name)
+    Doctor.create(name: Faker::Name.name, department: Department.all.sample)
 end
 
 5.times do
