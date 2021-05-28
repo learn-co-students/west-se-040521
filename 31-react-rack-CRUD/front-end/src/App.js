@@ -5,7 +5,7 @@ import Header from './components/Header'
 import ToyForm from './components/ToyForm'
 import ToyContainer from './components/ToyContainer'
 
-URL = "http://localhost:3000/toys"
+URL = "http://localhost:9393/toys"
 class App extends React.Component{
 
   state = {
@@ -18,7 +18,7 @@ class App extends React.Component{
     .then(res => res.json())
     .then(toyData => {
       this.setState({
-        toys: toyData
+        toys: toyData.toys
       })
     })
   }
@@ -35,7 +35,7 @@ class App extends React.Component{
     .then(res => res.json())
     .then(updateToy => {
       this.setState({
-        toys: [...this.state.toys.map(toy => toy.id === updateToy.id ? updateToy : toy)]
+        toys: [...this.state.toys.map(toy => toy.id === updateToy.toy.id ? updateToy.toy : toy)]
       })
     })
   }
@@ -57,9 +57,9 @@ class App extends React.Component{
 
     fetch(URL, reqPackage)
     .then(res => res.json())
-    .then(toy => {
+    .then(data => {
       this.setState({
-        toys: [...this.state.toys, toy],
+        toys: [...this.state.toys, data.toy],
         display: !this.state.display
       })
     })
