@@ -11,7 +11,7 @@
 - Generate a model
 - Create routes
 
-## Intro: What is Rails (10 mins)
+## Intro: What is Rails
 
 Rails was created in 2003 by David Heinemeier Hansson, while working on the code base for Basecamp, a project management tool by 37signals. David extracted Ruby on Rails and officially released it as open source code in July of 2004. Despite rapid iteration of the Rails code base throughout the years, it has stuck to three basic principles:
 
