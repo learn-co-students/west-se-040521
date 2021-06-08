@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  breed: MyString
+  year_of_birth: 1
+  good_with_kids: false
+
+two:
+  name: MyString
+  breed: MyString
+  year_of_birth: 1
+  good_with_kids: false
