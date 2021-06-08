@@ -3,14 +3,21 @@
 ## SWBAT
 - Discuss and Review Forms
 - Implement Edit, Update, New and Create 
-- form_for, form_tag, link_to, button_tag, submit_tag
-- Strong params
-- Checking information before creating
+- Use form_for, form_tag, link_to, button_tag, submit_tag
+- Secure data creation with Strong params
+- (Checking information before creating)
 
 ## REST & CRUD
-| HTTP        | CRUD          | Route
-| ----------- | ------------- |----------------------|
-| GET         | READ          | get '/candies'            |
+| HTTP        | CRUD          | Route                | Action
+| ----------- | ------------- |----------------------| -----
+| GET         | READ          | get '/candies'       | index
+| GET         | READ (one)    | get '/candies/:id'   | show
+| GET         | READ (form)   | get '/candies/new'   | new
+| POST        | CREATE        | post '/candies'      | create
+| GET         | READ (form)   | get '/candies/:id/edit | edit
+| PATCH       | UPDATE        | patch '/candies/:id' | update
+| DELETE      | DESTROY       | delete '/candies/:id' | destroy
+
 
 ## CHEAT SHEET
 
@@ -43,7 +50,7 @@
 rails new app_name
 ```
 
-### How do I use rails generators 
+### How do I use rails generators? 
 #### DO NOT USE
 ```ruby
 rails generate scaffold 
@@ -55,15 +62,18 @@ rails generate scaffold
 ```ruby
 rails g model NameOfModel column_name:datatype column_name2:datatype2
 ```
-- will create model and migration
+- will create model and migration\
+
 ```ruby
 rails g controller name_of_controller
 ```
 - will create a controller, routes, and views
+
 ```ruby
 rails g migration add_new_column_name_to_table_name column_name:datatype 
 ```
 - adds a new column
+
 ```ruby
 rails g migration remove_column_name_from_table_name column_name:datatype
 ```
@@ -81,11 +91,13 @@ get '/candy_stores', to: 'candy_stores#show'
 
 ```
 - custom route
+
 ```ruby
 #method 'route', to: 'controller#action', as: 'prefix'
 get '/candy_stores', to: 'candy_stores#show', as: 'candy'
 ```
 - to draw a single route _and_ create a path helper (e.g. candy_path)
+
 ```ruby
 #resources :model_name 
 resources :candy_stores

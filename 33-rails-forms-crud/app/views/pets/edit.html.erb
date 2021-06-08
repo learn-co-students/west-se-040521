@@ -1,0 +1,15 @@
+<h1>Edit your pet!</h1>
+
+<%= form_for @pet do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :species %>
+    <%= f.text_field :species %>
+    <%= f.label :year_of_birth %>
+    <%= f.text_field :year_of_birth %>
+    <%= f.label :good_with_kids, "Is good with kids: " %>
+    <%= f.radio_button :good_with_kids, "true" %>
+    <%= f.label :good_with_kids, "Is terrible with kids: " %>
+    <%= f.radio_button :good_with_kids, "false" %>
+    <%= f.submit %>
+<% end %>

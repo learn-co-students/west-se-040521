@@ -1,0 +1,31 @@
+<h1>Add a new pet!</h1>
+
+<%# <form method='post' action='/pets'>
+    <input type='text'>
+    <input type='submit'>
+
+</form> %>
+
+<%= form_tag pets_path do %>
+    <div>
+        <%= label_tag :name %>
+        <%= text_field_tag :'pet[name]'%>
+    </div>
+    <div>
+        <%= label_tag :species %>
+        <%= text_field_tag :species %>
+    </div>
+    <div>
+        <%= label_tag :year_of_birth %>
+        <%= text_field_tag :year_of_birth %>
+    </div>
+    <div>
+        <%= label_tag :good_with_kids %>
+        <p>Is good with kids:</p>
+        <%= radio_button_tag :good_with_kids, "true" %>
+        <p>Is a monster with kids:</p>
+        <%= radio_button_tag :good_with_kids, "false" %>
+    </div>
+    <%= submit_tag "Create a new pet" %>
+
+<% end %>
