@@ -1,0 +1,10 @@
+<h1>Pets#show</h1>
+
+<p>Name: <%= @pet.name %></p>
+<p>Species: <%= @pet.species %> | Age: <%= @pet.age %> </p>
+
+<p>Good with kids? <%= @pet.good_with_kids ? "Terrific" : "Is a monster" %></p>
+
+<button><%= link_to "Edit this pet", edit_pet_path(@pet) %></button>
+<%= button_to "Delete", @pet, method: :delete %>
+<%= link_to "Back", pets_path %>
