@@ -10,6 +10,8 @@
 
 For our app, we're creating cows and farmers. A farmer `has_many` cows, and a cow `belongs_to` a farmer
 
+Farmer --< Cow
+
 ---
 
 #### A Quick Note on Collection Select:

@@ -1,0 +1,13 @@
+<h1>Farmer deets:</h1>
+
+<h2>Name: <%= @farmer.name %></h2>
+
+<h2>Has these cows:</h2>
+<ol>
+    <% @farmer.cows.each do |cow| %>
+        <li><%= link_to cow.name, cow %></li>
+    <% end %>
+
+</ol>
+
+<%= button_to "Delete", @farmer, method: :delete, data: {confirm: "Do you want to 86 this farmer?"} %>

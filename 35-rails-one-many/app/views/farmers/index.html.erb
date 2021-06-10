@@ -1,0 +1,9 @@
+<h1>All the farmers!</h1>
+
+<ul>
+    <% @farmers.each do |f| %>
+        <li><%= link_to f.name, f %></li>
+    <% end %>
+</ul>
+
+<%= link_to "Add a cow", new_cow_path %>

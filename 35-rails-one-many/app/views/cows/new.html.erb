@@ -1,0 +1,26 @@
+<h1>Create a cow!</h1>
+
+<% if @cow.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@cow.errors.count, "error") %> prohibited this cow from being saved:</h2>
+
+    <ul>
+      <% @cow.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= form_for @cow do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :spots %>
+    <%= f.number_field :spots %>
+    <br>
+    <p>Which farmer?</p>
+    <%= f.collection_select :farmer_id, Farmer.all, :id, :name, {include_blank: 'Select a farmer'} %>
+    <%= f.submit %>
+<% end %>
