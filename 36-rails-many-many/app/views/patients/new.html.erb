@@ -1,0 +1,16 @@
+<h1>New Patient Intake Form</h1>
+
+<% if @patient.errors.any? %>
+    <% @patient.errors.full_messages.each do |msg| %>
+        <div id="error_explanation"><%= msg %></div>
+    <% end %>
+<% end %>
+
+<%= form_for @patient do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :condition %>
+    <%= f.text_field :condition %>
+    <%= f.submit %>
+<% end %>

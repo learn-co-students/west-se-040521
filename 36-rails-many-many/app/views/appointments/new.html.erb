@@ -1,0 +1,22 @@
+<h1>New appointment booking</h1>
+
+<% if @appointment.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+    <ul>
+      <% @appointment.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= form_for @appointment do |f| %>
+    <%= f.label :time %>
+    <%= f.datetime_select :time %>
+    <%= f.collection_select :patient_id, Patient.all, :id, :name, {include_blank: 'Select a patient'} %>
+    <%= f.collection_select :doctor_id, Doctor.all, :id, :name, {include_blank: 'Select a doctor'} %>
+    <%= f.submit %>
+<% end %>

@@ -1,0 +1,24 @@
+<h1>Patient record</h1>
+
+<h3>Name: <%= @patient.name %></h3>
+<h3>Condition: <%= @patient.condition %></h3>
+
+<h2>Appointments:</h2>
+
+<ol>
+    <% @patient.appointments.each do |a| %>
+        <li>Time: <%= link_to a.time, edit_appointment_path(a) %> | Doctor: <%= a.doctor.name %></li>
+    <% end %>
+</ol>
+
+<h2>Physicians: </h2>
+
+<ol>
+    <% @patient.doctors.uniq.each do |d|%>
+        <li><%= d.name %> | <%= d.specialty %></li>
+    <% end %>
+</ol>
+
+<%= link_to "Book a new appointment", new_appointment_path %><br>
+<%= link_to "Update this patient record", edit_patient_path(@patient) %><br>
+<%= link_to "Back to Patient List", patients_path %>

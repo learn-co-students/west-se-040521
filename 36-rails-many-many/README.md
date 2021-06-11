@@ -6,14 +6,17 @@
 - use form builder methods to create an associated object/record (i.e. collection_select)
 - implement `dependent: :destroy` in order to normalize db
 
+
+Patient --< Appointment >-- Doctor
+
 ## Deliverables
-- create migration and model for join table `appointments`
-- add associations for many-to-many
-- add controller actions and view to create new appoinments
-- add validations for patient create/update
-- handle validations errors on controller
-- display errors to user
-- add custom validation on appoinment model
+-[x] create migration and model for join table `appointments`
+-[x] add associations for many-to-many
+-[x] add controller actions and view to create new appoinments
+-[x] add validations for patient create/update
+-[x] handle validations errors on controller
+-[x] display errors to user
+-[x] add custom validation on appointment model
 
 
 #### A Quick Note on Collection Select:
