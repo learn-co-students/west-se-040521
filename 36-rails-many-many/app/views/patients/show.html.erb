@@ -21,4 +21,5 @@
 
 <%= link_to "Book a new appointment", new_appointment_path %><br>
 <%= link_to "Update this patient record", edit_patient_path(@patient) %><br>
+<%= button_to "Delete this patient", @patient, method: :delete, data: {confirm: "Are you sure?"} %>
 <%= link_to "Back to Patient List", patients_path %>

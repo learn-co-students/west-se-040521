@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController\
 
-    before_action :find_patient, only: [:show, :edit, :update]
+    before_action :find_patient, only: [:show, :edit, :update, :destroy]
 
     def index
         @patients = Patient.all
@@ -32,6 +32,11 @@ class PatientsController < ApplicationController\
         else
             render :edit
         end
+    end
+
+    def destroy
+        @patient.destroy
+        redirect_to patients_path
     end
     
     private
