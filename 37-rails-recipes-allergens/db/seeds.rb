@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Recipe.destroy_all
+Ingredient.destroy_all
+
+MEAL_TYPES = ["Breakfast", "Lunch", "Dinner", "Appetizers", "Sweets"]
+
+10.times do 
+    User.create(name: Faker::Superhero.name)
+end
+
+30.times do
+    Ingredient.create(name: Faker::Food.ingredient)
+end
+
+15.times do
+    Recipe.create(name: Faker::Food.dish, user: User.all.sample, meal_type: MEAL_TYPES.sample)
+end
