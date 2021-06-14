@@ -1,0 +1,13 @@
+<%= form_for @post do |f|%>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.label :likes %>
+  <%= f.number_field :likes %>
+  <%= f.label :destination %>
+  <%= f.collection_select :destination_id, @destinations, :id, :name %>
+  <%= f.label :blogger %>
+  <%= f.collection_select :blogger_id, @bloggers, :id, :name %>
+  <%= f.submit %>
+<% end %>
