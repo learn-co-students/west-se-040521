@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_11_224404) do
+ActiveRecord::Schema.define(version: 2021_06_14_205543) do
+
+  create_table "allergies", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "ingredient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ingredient_id"], name: "index_allergies_on_ingredient_id"
+    t.index ["user_id"], name: "index_allergies_on_user_id"
+  end
+
+  create_table "ingredient_entries", force: :cascade do |t|
+    t.string "amount"
+    t.integer "recipe_id", null: false
+    t.integer "ingredient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ingredient_id"], name: "index_ingredient_entries_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_ingredient_entries_on_recipe_id"
+  end
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
@@ -33,5 +52,9 @@ ActiveRecord::Schema.define(version: 2021_06_11_224404) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "allergies", "ingredients"
+  add_foreign_key "allergies", "users"
+  add_foreign_key "ingredient_entries", "ingredients"
+  add_foreign_key "ingredient_entries", "recipes"
   add_foreign_key "recipes", "users"
 end

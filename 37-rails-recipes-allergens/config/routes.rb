@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :allergies
+  resources :ingredient_entries
   resources :ingredients
   resources :recipes
   resources :users
