@@ -1,0 +1,3 @@
+class Blogger < ApplicationRecord
+
+end
