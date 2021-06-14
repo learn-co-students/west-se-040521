@@ -1,0 +1,9 @@
+<h1><%= @blogger.name %>'s Profile Page</h1>
+<p><%= @blogger.bio %></p>
+<p><%= @blogger.age %></p>
+
+<p>Total Likes</p>
+<h3><%= @blogger.total_likes%></h3>
+
+<p>Featured Post</p>
+<h3><%= link_to @blogger.featured_post.title, post_path(@blogger.featured_post) </h3> %>

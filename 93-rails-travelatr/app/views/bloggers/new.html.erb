@@ -1,0 +1,9 @@
+<%= form_for(@blogger) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :bio %>
+  <%= f.text_area :bio %>
+  <%= f.label :age %>
+  <%= f.number_field :age %>
+  <%= f.submit %>
+<% end %>
