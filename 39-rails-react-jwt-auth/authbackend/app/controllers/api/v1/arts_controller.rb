@@ -3,24 +3,24 @@ class Api::V1::ArtsController < ApplicationController
 
   # GET /arts
   def index
-    @arts = Art.all
+    arts = Art.all
 
-    render json: @arts
+    render json: arts
   end
 
   # GET /arts/1
   def show
-    render json: @art
+    render json: art
   end
 
   # POST /arts
   def create
-    @art = Art.new(art_params)
+    art = Art.new(art_params)
 
-    if @art.save
-      render json: @art, status: :created, location: @art
+    if art.save
+      render json: art, status: :created, location: art
     else
-      render json: @art.errors, status: :unprocessable_entity
+      render json: art.errors, status: :unprocessable_entity
     end
   end
 

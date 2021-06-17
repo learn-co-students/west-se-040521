@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :arts
       resources :artists
       resources :users
-
+      post '/login', to: 'users#login'
     end
  end
 end
