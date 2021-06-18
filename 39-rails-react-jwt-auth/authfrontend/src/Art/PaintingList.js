@@ -14,6 +14,10 @@ class PaintingList extends React.Component {
       console.log(this.props.token)
       fetch('http://localhost:3000/api/v1/arts', {
         method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+        }
       })
       .then(res => res.json())
       .then(data => {
@@ -30,7 +34,7 @@ class PaintingList extends React.Component {
           if (p.id !== id) {
             return p;
           } else {
-            return { ...p, votes: p.votes + 1 };
+            return { ...p, votes: parseInt(p.votes) + 1 };
           }
         })
       };

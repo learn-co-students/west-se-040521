@@ -1,20 +1,21 @@
 class ApplicationController < ActionController::API 
 
-    before_action :authorized
+   before_action :authorized
 
    def encode_token(payload)
-        JWT.encode(payload, 'my_secret')
+        # look in .env file to see where the environment var 'JWT_SECRET' is set  
+        JWT.encode(payload, ENV['JWT_SECRET'])
    end
 
    def auth_header
-    request.headers['Authorization']
+        request.headers['Authorization']
    end
 
    def decoded_token
         if auth_header
             token = auth_header.split(' ')[1]
             begin
-                JWT.decdode(token, 'my_secret')[0]
+                JWT.decode(token, ENV['JWT_SECRET'])[0]
 
             rescue JWT::DecodeError
                 nil
@@ -38,7 +39,7 @@ class ApplicationController < ActionController::API
    end
 end
 
-
+# here's an example of a fetch that would send a request containing the proper header
 # fetch('http://localhost:3000/api/v1/profile', {
 #     method: 'GET',
 #     headers: {

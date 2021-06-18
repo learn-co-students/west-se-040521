@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_204013) do
+ActiveRecord::Schema.define(version: 2021_06_17_224317) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2021_06_17_204013) do
     t.index ["artist_id"], name: "index_arts_on_artist_id"
   end
 
+  create_table "userarts", force: :cascade do |t|
+    t.integer "art_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["art_id"], name: "index_userarts_on_art_id"
+    t.index ["user_id"], name: "index_userarts_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -42,4 +51,6 @@ ActiveRecord::Schema.define(version: 2021_06_17_204013) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "userarts", "arts"
+  add_foreign_key "userarts", "users"
 end

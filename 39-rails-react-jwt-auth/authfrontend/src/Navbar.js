@@ -38,7 +38,7 @@ class Navbar extends React.Component {
               <Link to="/login">Login</Link>
             </li>
             <li className="ui button">
-              <a onClick={() => this.props.handleLogout()} href="#!">Logout</a>
+              <a onClick={() => this.props.handleLogout()} href="/login">Logout</a>
             </li>
             <li className="ui button">
               <Link to="/paintings">Paintings</Link>

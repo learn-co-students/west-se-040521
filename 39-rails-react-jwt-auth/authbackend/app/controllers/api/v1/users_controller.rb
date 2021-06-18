@@ -4,11 +4,12 @@ class Api::V1::UsersController < ApplicationController
 
     def create
         user = User.new(user_params)
+        # byebug
         if user.save
             token = encode_token({user_id: user.id})
             render json: {user: UserSerializer.new(user) , jwt: token}, status: :created
         else
-            render json: {message: "Invalid credentialos"}, status: :unauthorized
+            render json: {message: "Invalid credentials"}, status: :unauthorized
         end
     end
 

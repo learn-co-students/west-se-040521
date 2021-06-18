@@ -12,6 +12,8 @@ import UserFavorite from './Art/UserFavorite'
 
 
 class App extends React.Component{
+  
+  // state is more secure than localStorage, but is reset on page reload
   state ={
     user: ""
   }
@@ -28,33 +30,73 @@ class App extends React.Component{
       return <Form name="Signup Form" handleSubmit={this.handleSignup} />
     }
   }
+
   //auth
   handleLogin = (info) => {
-    
+    this.handleAuthFetch(info, 'http://localhost:3000/api/v1/login')
   }
 
   // logout needs to delete the token from localStorage AND remove user data from state
   handleLogout = () => {
-    
+    this.props.history.push('/login')
+    localStorage.clear()
+    this.setState({user: null})
   }
 
   handleSignup = (info) => {
-    
+    this.handleAuthFetch(info, 'http://localhost:3000/api/v1/users')
   }
 
-
-// helper method for use by both login/signup
+  // helper method for use by both login/signup
   handleAuthFetch = (info, request) => {  
-    
+    fetch(request, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: info.username,
+        password: info.password
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      this.setState({
+        user: data.user
+      },
+      () => {
+        localStorage.setItem('jwt', data.jwt)
+        this.props.history.push('/')})
+    })
   }
   
   addToCollection = (art) => {
-    
+    fetch('http://localhost:3000/api/v1/userarts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization' : `Bearer ${localStorage.getItem('jwt')}`
+      },
+      body: JSON.stringify({art_id: art.id})
+    })
+    .then(res => res.json())
+    .then(data => this.setState({user:data.user}))
   }
 
   // this is to handle a case where the user reloads the page but didn't mean to logout.  Re-fetches the user just using the token.
   componentDidMount() {
-    
+    if (localStorage.getItem('jwt')) {
+      fetch('http://localhost:3000/getuser', {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization' : `Bearer ${localStorage.getItem('jwt')}`
+        }
+      })
+      .then(res => res.json())
+      .then(data => this.setState({user: data.user}))
+    }
   }
 
   render(){
