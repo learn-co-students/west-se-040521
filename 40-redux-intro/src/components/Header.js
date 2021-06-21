@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import logo from "../logo.svg";
+import {store} from '../App'
 
 
 export default class Header extends Component {
     renderDescription = () => {
-      const remainder = this.props.count % 5;
+      const remainder = store.getState().count % 5;
       const upToNext = 5 - remainder;
-      return `The current count is less than ${this.props.count + upToNext}`;
+      return `The current count is less than ${store.getState().count + upToNext}`;
     };
   
     render() {

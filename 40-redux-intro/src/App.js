@@ -1,26 +1,42 @@
 import React, { Component } from 'react';
 import Counter from './components/Counter';
 import Header from './components/Header';
+import { createStore } from 'redux'
+
+const intialState = {
+  count: 0,
+  friend: [],
+  loading: false
+}
+
+const reducer = (prevState=intialState, action) => {
+  console.log('prevState: ', prevState, 'action: ', action)
+  switch (action.type) {
+    case 'INCREMENT':
+      return {...prevState, count: prevState.count + 1}
+    case 'DECREMENT':
+      return {...prevState, count: prevState.count - 1}
+    default:
+      return prevState
+
+  }
+  
+}
+
+export const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 class App extends Component {
-    state = { count: 0 };
-  
-    increment = () => {
-      this.setState(prevState => ({ count: prevState.count + 1 }));
-    };
-  
-    decrement = () => {
-      this.setState(prevState => ({ count: prevState.count - 1 }));
-    };
+    // state = { count: 0 };
+
+    componentDidMount() {
+      store.subscribe(() => this.forceUpdate())
+    }
   
     render() {
       return (
         <div className="App">
-          <Header count={this.state.count} />
+          <Header  />
           <Counter
-            count={this.state.count}
-            increment={this.increment}
-            decrement={this.decrement}
           />
         </div>
       );
