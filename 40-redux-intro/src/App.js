@@ -16,6 +16,10 @@ const reducer = (prevState=intialState, action) => {
       return {...prevState, count: prevState.count + 1}
     case 'DECREMENT':
       return {...prevState, count: prevState.count - 1}
+    case 'MINUS_FIVE':
+      return {...prevState, count: prevState.count + action.payload}
+    case 'PLUS_THREE':
+      return {...prevState, count: prevState.count + action.payload}
     default:
       return prevState
 
