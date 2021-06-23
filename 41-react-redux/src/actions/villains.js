@@ -4,3 +4,10 @@ export function addVillain(vObj){
         payload: vObj
     }
 }
+
+export function arrestVillain(villainObj){
+    return{
+        type: 'ARREST_VILLAIN',
+        payload: villainObj
+    }
+}
